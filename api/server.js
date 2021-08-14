@@ -5,7 +5,7 @@ const server = express();
 server.use(express.json());
 
 server.use('*', (req, res, next) => {
-   next({ status: 400, message: "not found" });
+   next({ status: 400, message: "not found." });
 });
 
 server.use((err, req, res, next) => { // eslint-disable-line
