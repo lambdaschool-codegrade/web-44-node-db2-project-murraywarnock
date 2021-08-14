@@ -22,7 +22,11 @@ router.get('/:id', checkCarId, async (req, res, next) => {
     res.json(req.car);
 });
 
-router.post('/', async (req, res, next) => {
+router.post(
+    '/',
+    checkCarPayload,
+    checkVinNumberValid,
+    checkVinNumberUnique, async (req, res, next) => {
     try {
         res.json('posting a new car');
     } catch (error) {
@@ -30,7 +34,12 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put(
+    '/:id',
+     checkCarId,
+     checkCarPayload,
+     checkVinNumberValid,
+     checkVinNumberUnique, async (req, res, next) => {
     try {
         res.json('editing a new car');
     } catch (error) {
