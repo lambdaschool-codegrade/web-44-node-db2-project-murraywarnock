@@ -5,12 +5,12 @@ exports.up = function (knex) {
     tbl.string('vin', 13).notNullable().unique();
     tbl.string('make', 128).notNullable();
     tbl.string('model', 128).notNullable();
-    tbl.numeric('mileage').unsigned().notNullable();
-    tbl.string('title', 128);
+    tbl.real('mileage').unsigned().notNullable();
+    tbl.integer('title', 128);
     tbl.string('transmission', 128);
   });
  };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableifExists('cars');
+  return knex.schema.dropTableIfExists('cars');
 };
